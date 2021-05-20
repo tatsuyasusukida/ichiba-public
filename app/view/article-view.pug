@@ -1,0 +1,122 @@
+extends ./layout
+include ./mixin/article
+
+block title
+  title ここに記事のタイトルが入ります｜コンテンツマーケティング運用ツール
+
+block breadcrumb
+  nav.mt-3(aria-label='パンくずリスト')
+    .container-xl
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='../../') トップ
+        li.breadcrumb-item
+          a(href='../') テキスト記事
+        li.breadcrumb-item
+          a(href='./' aria-current='page') ここに記事のタイトルが入ります
+
+mixin article
+  article
+    .card
+      a.skeleton-image.is-21x9.card-img-top(href='./article-title/' tabindex='-1')
+      .card-body
+        h3.card-title.h5
+          a.text-decoration-none(href='./article-title/') ここに記事のタイトルが入ります
+        ul.list-inline
+          li.list-inline-item
+            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
+          li.list-inline-item
+            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
+        p.card-text ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+        .d-grid
+          a.btn.btn-primary(href='./article-title/' tabindex='-1') 続きを読む
+
+block main
+  main
+    .bg-light.pt-5.pb-5
+      .container-xl
+        h1.h4.mb-0 ここに記事のタイトルが入ります
+
+    .container-xl
+      .d-flex
+        .flex-grow-1(style='flex-basis: calc(100% - 300px - 2rem)')
+          .skeleton-image.is-16x9.mt-4
+
+          .text-muted.mt-4 2021.05.20
+
+          nav.mt-4(aria-label='テーマ')
+            .d-flex.flex-wrap.gap-3
+              a.badge.bg-info.text-dark.text-decoration-none.fs-5(href='../search/?keyword=テーマ') テーマ
+              a.badge.bg-info.text-dark.text-decoration-none.fs-5(href='../search/?keyword=テーマ') テーマ
+
+          p.mt-4 ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+
+          .bg-light.mt-4.p-4 この記事は約5分で読めます。
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3 目次
+            ul.list-unstyled
+              li
+                a(href='#section1') この記事のポイント
+              li
+                a(href='#section2') ここに見出しが入ります1
+              li
+                a(href='#section3') ここに見出しが入ります2
+              li
+                a(href='#section4') まとめ
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3(id='section1') この記事のポイント
+            ul
+              li ここにテキストが入ります、ここにテキストが入ります。
+              li ここにテキストが入ります、ここにテキストが入ります。
+              li ここにテキストが入ります、ここにテキストが入ります。
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3(id='section2') ここに見出しが入ります
+            p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            table.table.table-bordered
+              thead
+                tr
+                  th.bg-light 列1
+                  th.bg-light 列2
+                  th.bg-light 列3
+                  th.bg-light 列4
+              tbody
+                tr
+                  td 内容
+                  td 内容
+                  td 内容
+                  td 内容
+                tr
+                  td 内容
+                  td 内容
+                  td 内容
+                  td 内容
+                tr
+                  td 内容
+                  td 内容
+                  td 内容
+                  td 内容
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3(id='section3') ここに見出しが入ります
+            p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            .skeleton-image.is-16x9
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3(id='section4') まとめ
+            p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+
+        .flex-grow-0(style='flex-basis: 300px; margin-left: 2rem;')
+          section
+            h2.border-bottom.pb-3.mb-4.fs-3.mt-4 関連記事
+            nav(aria-label='関連記事')
+              each el in new Array(6)
+                .mb-2
+                  a.text-decoration-none(href='./')
+                    .d-flex.align-items-center.gap-2
+                      .flex-grow-0(style='flex-basis: 50px')
+                        .skeleton-image
+                      .flex-grow-1(style='flex-basis: calc(100% - 50px - 0.5rem)')
+                        | ここに記事のタイトルが入ります

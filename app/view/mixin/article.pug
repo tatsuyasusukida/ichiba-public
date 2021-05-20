@@ -1,0 +1,16 @@
+mixin article
+  article
+    .card
+      a.skeleton-image.is-21x9.card-img-top(href='./article-title/' tabindex='-1')
+      .card-body
+        .text-muted.small.mb-2 2021.05.20
+        h3.card-title.h5
+          a.text-decoration-none(href='./article-title/') ここに記事のタイトルが入ります
+        ul.list-inline
+          li.list-inline-item
+            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
+          li.list-inline-item
+            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
+        p.card-text ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+        .d-grid
+          a.btn.btn-primary(href='./article-title/' tabindex='-1') 続きを読む

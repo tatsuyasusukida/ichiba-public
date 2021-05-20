@@ -4,6 +4,11 @@
   padding-bottom: 50%;
 }
 
+.skeleton-image.is-16x9 {
+  padding-top: 28.1%;
+  padding-bottom: 28.1%;
+}
+
 .skeleton-image.is-21x9 {
   padding-top: 21.4%;
   padding-bottom: 21.4%;

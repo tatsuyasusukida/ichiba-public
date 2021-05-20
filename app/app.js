@@ -34,6 +34,7 @@ class App {
     this.router.get('/', (req, res) => res.render('home'))
     this.router.get('/layout/', (req, res) => res.render('layout'))
     this.router.get('/article/', (req, res) => res.render('article'))
+    this.router.get('/article/:title/', (req, res) => res.render('article-view'))
 
     this.router.use('/api/v1/', nocache())
     this.router.use('/api/v1/', express.json())

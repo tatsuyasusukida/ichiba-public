@@ -1,4 +1,5 @@
 extends ./layout
+include ./mixin/article
 
 block title
   title テキスト記事｜コンテンツマーケティング運用ツール
@@ -12,25 +13,11 @@ block breadcrumb
         li.breadcrumb-item
           a(href='./' aria-current='page') テキスト記事
 
-mixin article
-  article
-    .card
-      a.skeleton-image.is-21x9.card-img-top(href='./article-title/' tabindex='-1')
-      .card-body
-        h3.card-title.h5
-          a.text-decoration-none(href='./article-title/') ここに記事のタイトルが入ります
-        ul.list-inline
-          li.list-inline-item
-            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
-          li.list-inline-item
-            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
-        p.card-text ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-        .d-grid
-          a.btn.btn-primary(href='./article-title/' tabindex='-1') 続きを読む
-
 block main
   main
-    h1.bg-light.text-center.h4.pt-5.pb-5.mb-0 テキスト記事
+    .bg-light.pt-5.pb-5
+      .container-xl
+        h1.h4.mb-0 テキスト記事
 
     .container-xl
       form.mt-4(action='./search/')
