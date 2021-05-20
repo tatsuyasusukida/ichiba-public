@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon -r dotenv/config script/serve.js"
+  },
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0",
+    "nocache": "^2.1.0",
+    "proxy-middleware": "^0.15.0",
+    "pug": "^3.0.2",
+    "winston": "^3.3.3"
+  }
+}

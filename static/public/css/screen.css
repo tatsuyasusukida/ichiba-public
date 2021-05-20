@@ -1,0 +1,10 @@
+.skeleton-image {
+  background: #eee; 
+  padding-top: 50%;
+  padding-bottom: 50%;
+}
+
+.skeleton-image.is-21x9 {
+  padding-top: 21.4%;
+  padding-bottom: 21.4%;
+}

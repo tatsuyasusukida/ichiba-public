@@ -1,0 +1,62 @@
+doctype html
+html(lang='ja')
+  head
+    block meta
+      meta(charset='utf-8')
+      meta(name='viewport' content='width=device-width, initial-scale=1')
+    block title
+      title コンテンツマーケティング運用ツール
+    block style
+      link(rel='stylesheet' href='/static/css/bootstrap.min.css')
+      link(rel='stylesheet' href='/static/css/bootstrap-icons.css')
+      link(rel='stylesheet' href='/static/css/screen.css')
+  body
+    block body
+      #page
+        block forward
+          nav(aria-label='進む')
+            .container-fluid
+              a.visually-hidden-focusable(href='#content') メインコンテンツへ進む
+        block header
+          header
+            nav(aria-label='ヘッダー')
+              .navbar.navbar-expand-md.navbar-light.bg-light
+                .container-fluid
+                  a.navbar-brand(href='/') コンテンツマーケティング運用ツール
+                  button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-control='navbarSupportedContent' aria-label='ヘッダーナビゲーションの表示、非表示を切り替える')
+                    span.navbar-toggler-icon
+                  .collapse.navbar-collapse(id='navbarSupportedContent')
+                    ul.navbar-nav.ms-auto
+                      li.nav-item
+                        a.nav-link(href='/article/') テキスト記事
+                      li.nav-item
+                        a.nav-link(href='/video/') 動画
+                      li.nav-item
+                        a.nav-link(href='/pdf/') PDF資料
+                      li.nav-item
+                        a.nav-link(href='/contact/') お問い合わせ
+        block breadcrumb
+          nav.mt-3(aria-label='パンくずリスト')
+            .container-fluid
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='./' aria-current='page') パンくずリスト
+        #content
+          block main
+            main
+              .container-fluid
+                .pt-5.pb-5.text-center.border.mt-3 メインコンテンツ
+        block backward
+          nav(aria-label='戻る')
+            .position-fixed(style='bottom: 1rem; right: 1rem; opacity: 0.7')
+              a(href='#page') ページトップへ戻る
+        block footer
+          footer
+            .border-top.mt-3.pt-3.pb-3
+              .container-fluid
+                a(href='https://www.loremipsum.co.jp/' target='_blank') &copy; Lorem Ipsum Co. Ltd.
+        block script
+          script(src='/static/js/bootstrap.bundle.min.js')
+          script(src='/static/js/polyfill.js')
+          script(src='/static/js/vue.js')
+          script(src='/static/js/app.js')

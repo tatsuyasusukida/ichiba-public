@@ -1,0 +1,100 @@
+extends ./layout
+
+block title
+  title テキスト記事｜コンテンツマーケティング運用ツール
+
+block breadcrumb
+  nav.mt-3(aria-label='パンくずリスト')
+    .container-xl
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='../') トップ
+        li.breadcrumb-item
+          a(href='./' aria-current='page') テキスト記事
+
+mixin article
+  article
+    .card
+      a.skeleton-image.is-21x9.card-img-top(href='./article-title/' tabindex='-1')
+      .card-body
+        h3.card-title.h5
+          a.text-decoration-none(href='./article-title/') ここに記事のタイトルが入ります
+        ul.list-inline
+          li.list-inline-item
+            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
+          li.list-inline-item
+            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
+        p.card-text ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+        .d-grid
+          a.btn.btn-primary(href='./article-title/' tabindex='-1') 続きを読む
+
+block main
+  main
+    h1.bg-light.text-center.h4.pt-5.pb-5.mb-0 テキスト記事
+
+    .container-xl
+      form.mt-4(action='./search/')
+        .input-group
+          input.form-control(type='search' name='keyword' id='keyword' placeholder='キーワード' aria-label='検索キーワード')
+          button.btn.btn-primary(type='submit') 検索
+
+      section
+        h2.visually-hidden 目次
+        nav.mt-3(aria-label='目次')
+          ul.nav
+            li.nav-item
+              a.nav-link(href='#news') 新着
+            li.nav-item
+              a.nav-link(href='#popular') 人気
+            li.nav-item
+              a.nav-link(href='#theme') テーマ
+            li.nav-item
+              a.nav-link(href='#series') シリーズ
+            li.nav-item
+              a.nav-link(href='#pickup') ピックアップ
+
+      section.mt-3
+        h2.border-bottom.pb-3.mb-4(id='news') 新着記事
+        nav(aria-label='新着記事')
+          .row
+            each el, i in new Array(3)
+              .col-12.col-sm-6.col-lg-4.mb-4(class={'d-none': i === 2, 'd-lg-block': i === 2})
+                +article
+          .text-end
+            a(href='./search/')
+              | 全ての新着記事を見る
+              span(aria-hidden='true') &raquo;
+
+      section.mt-3
+        h2.border-bottom.pb-3.mb-4(id='popular') 人気記事
+        nav(aria-label='人気記事')
+          .row
+            each el, i in new Array(3)
+              .col-12.col-sm-6.col-lg-4.mb-4(class={'d-none': i === 2, 'd-lg-block': i === 2})
+                +article
+          .text-end
+            a(href='./search/')
+              | 全ての人気記事を見る
+              span(aria-hidden='true') &raquo;
+
+      section
+        h2.border-bottom.pb-3.mb-4(id='theme') テーマ一覧
+        nav(aria-label='テーマ')
+          .d-flex.flex-wrap.gap-3
+            each el in new Array(12)
+              a.badge.bg-info.text-dark.text-decoration-none.fs-5(href='#') テーマ
+
+      section.mt-5
+        h2.border-bottom.pb-3.mb-4(id='series') シリーズ一覧
+        nav(aria-label='シリーズ')
+          .list-group
+            each el in new Array(3)
+              a.list-group-item.list-group-item-action(href='#') ここにシリーズのタイトルが入ります
+
+      section.mt-5
+        h2.border-bottom.pb-3.mb-4(id='pickup') ピックアップ記事
+        nav(aria-label='ピックアップ')
+          .row
+            each el, i in new Array(6)
+              .col-12.col-sm-6.col-lg-4.mb-4(class={'d-none': i === 2, 'd-lg-block': i === 2})
+                +article
