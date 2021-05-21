@@ -11,25 +11,9 @@ block breadcrumb
         li.breadcrumb-item
           a(href='../../') トップ
         li.breadcrumb-item
-          a(href='../') テキスト記事
+          a(href='../') 記事
         li.breadcrumb-item
           a(href='./' aria-current='page') ここに記事のタイトルが入ります
-
-mixin article
-  article
-    .card
-      a.skeleton-image.is-21x9.card-img-top(href='./article-title/' tabindex='-1')
-      .card-body
-        h3.card-title.h5
-          a.text-decoration-none(href='./article-title/') ここに記事のタイトルが入ります
-        ul.list-inline
-          li.list-inline-item
-            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
-          li.list-inline-item
-            a.badge.bg-info.text-dark.text-decoration-none(href='./search/?keyword=テーマ') テーマ
-        p.card-text ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
-        .d-grid
-          a.btn.btn-primary(href='./article-title/' tabindex='-1') 続きを読む
 
 block main
   main
@@ -38,20 +22,22 @@ block main
         h1.h4.mb-0 ここに記事のタイトルが入ります
 
     .container-xl
-      .d-flex
-        .flex-grow-1(style='flex-basis: calc(100% - 300px - 2rem)')
+      .d-block.d-lg-flex
+        .flex-grow-1(style='flex-basis: calc(100% - 400px - 1.5rem)')
           .skeleton-image.is-16x9.mt-4
 
-          .text-muted.mt-4 2021.05.20
+          .text-muted.mt-4 2021年5月20日
 
           nav.mt-4(aria-label='テーマ')
             .d-flex.flex-wrap.gap-3
               a.badge.bg-info.text-dark.text-decoration-none.fs-5(href='../search/?keyword=テーマ') テーマ
               a.badge.bg-info.text-dark.text-decoration-none.fs-5(href='../search/?keyword=テーマ') テーマ
 
-          p.mt-4 ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+          nav.bg-light.mt-4.p-4(aria-label='形式')
+            | この記事は約5分で読めます。<br>
+            | この記事の<a href="">動画版<a>と<a href="">PDF版<a>があります。
 
-          .bg-light.mt-4.p-4 この記事は約5分で読めます。
+          p.mt-4 ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
 
           section.mt-4
             h2.border-bottom.pb-3.mb-4.fs-3 目次
@@ -108,10 +94,50 @@ block main
             h2.border-bottom.pb-3.mb-4.fs-3(id='section4') まとめ
             p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
 
-        .flex-grow-0(style='flex-basis: 300px; margin-left: 2rem;')
+          .d-grid.mt-4
+            a.btn.btn-block.btn-outline-primary.pt-3.pb-3(href='../download/file-title/') この記事のPDF版をダウンロードする
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3(id='section4') 関連記事
+            nav(aria-label='関連記事')
+            each el in new Array(3)
+              .d-flex.align-items-center.gap-3.mb-3
+                each el in new Array(2)
+                  div(style='flex-basis: calc(50% - 1rem)')
+                    a.text-decoration-none(href='./')
+                      .d-flex.align-items-center.gap-2
+                        .flex-grow-0(style='flex-basis: 50px')
+                          .skeleton-image
+                        .flex-grow-1(style='flex-basis: calc(100% - 50px - 0.5rem)')
+                          | ここに記事のタイトルが入ります
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3(id='section4') 関連動画
+            nav(aria-label='関連記事')
+            .row
+              each el in new Array(3)
+                .col-4
+                  a.text-decoration-none(href='./')
+                    .skeleton-image.is-16x9
+                    .mt-2 ここに動画のタイトルが入ります
+
+          section.mt-4
+            h2.border-bottom.pb-3.mb-4.fs-3(id='section4') 関連資料
+            nav(aria-label='関連記事')
+            .row.gx-3
+              each el in new Array(2)
+                .col-6
+                  a.text-decoration-none(href='./')
+                    .row.align-items-center.gx-2
+                      .col-6
+                        .skeleton-image.is-3x4
+                      .col-6
+                        | ここにダウンロード資料のタイトルが入ります
+
+        .flex-grow-0.ms-4.d-none.d-lg-block(style='flex-basis: 400px;')
           section
             h2.border-bottom.pb-3.mb-4.fs-3.mt-4 関連記事
-            nav(aria-label='関連記事')
+            nav(aria-label='関連記事サブ')
               each el in new Array(6)
                 .mb-2
                   a.text-decoration-none(href='./')
@@ -120,3 +146,27 @@ block main
                         .skeleton-image
                       .flex-grow-1(style='flex-basis: calc(100% - 50px - 0.5rem)')
                         | ここに記事のタイトルが入ります
+
+          section
+            h2.border-bottom.pb-3.mb-4.fs-3.mt-4 関連動画
+            nav(aria-label='関連動画サブ')
+              each el in new Array(3)
+                .mb-2
+                  a.text-decoration-none(href='../../video/title-title/')
+                    .d-flex.align-items-center.gap-2
+                      .flex-grow-0(style='flex-basis: 150px')
+                        .skeleton-image.is-16x9
+                      .flex-grow-1(style='flex-basis: calc(100% - 150px - 0.5rem)')
+                        | ここに動画のタイトルが入ります
+
+          section
+            h2.border-bottom.pb-3.mb-4.fs-3.mt-4 関連資料
+            nav(aria-label='関連資料サブ')
+              each el in new Array(2)
+                .mb-2
+                  a.text-decoration-none(href='../../video/title-title/')
+                    .d-flex.align-items-center.gap-2
+                      .flex-grow-0(style='flex-basis: 100px')
+                        .skeleton-image.is-3x4
+                      .flex-grow-1(style='flex-basis: calc(100% - 100px - 0.5rem)')
+                        | ここにダウンロード資料のタイトルが入ります
