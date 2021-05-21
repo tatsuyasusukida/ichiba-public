@@ -2,7 +2,7 @@ extends ./layout
 include ./mixin/article
 
 block title
-  title テキスト記事｜コンテンツマーケティング運用ツール
+  title 記事｜コンテンツマーケティング運用ツール
 
 block breadcrumb
   nav.mt-3(aria-label='パンくずリスト')
@@ -34,7 +34,7 @@ block main
             li.nav-item
               a.nav-link(href='#popular') 人気
             li.nav-item
-              a.nav-link(href='#theme') テーマ
+              a.nav-link(href='#topic') トピック
             li.nav-item
               a.nav-link(href='#series') シリーズ
             li.nav-item
@@ -65,11 +65,11 @@ block main
               span(aria-hidden='true') &raquo;
 
       section
-        h2.border-bottom.pb-3.mb-4(id='theme') テーマ一覧
-        nav(aria-label='テーマ')
+        h2.border-bottom.pb-3.mb-4(id='topic') トピック一覧
+        nav(aria-label='トピック')
           .d-flex.flex-wrap.gap-3
             each el in new Array(12)
-              a.badge.bg-info.text-dark.text-decoration-none.fs-5(href='#') テーマ
+              a.badge.bg-info.text-dark.text-decoration-none.fs-5(href='#') トピック
 
       section.mt-5
         h2.border-bottom.pb-3.mb-4(id='series') シリーズ一覧

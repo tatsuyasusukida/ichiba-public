@@ -94,6 +94,19 @@ block main
             h2.border-bottom.pb-3.mb-4.fs-3(id='section4') まとめ
             p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
 
+          nav.mt-4(aria-label='シリーズ')
+            .row
+              .col-6
+                .d-grid
+                  a.btn.btn-link.text-decoration-none(href='./')
+                    span(aria-hidden='true') &laquo; 
+                    | 前の記事
+              .col-6
+                .d-grid
+                  a.btn.btn-link.text-decoration-none(href='./')
+                    | 次の記事
+                    span(aria-hidden='true')  &raquo;
+
           .d-grid.mt-4
             a.btn.btn-block.btn-outline-primary.pt-3.pb-3(href='../download/file-title/') この記事のPDF版をダウンロードする
 

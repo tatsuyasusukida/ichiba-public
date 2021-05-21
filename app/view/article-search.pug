@@ -1,0 +1,63 @@
+extends ./layout
+include ./mixin/article
+
+block title
+  title ●●●に関する記事｜コンテンツマーケティング運用ツール
+
+block breadcrumb
+  nav.mt-3(aria-label='パンくずリスト')
+    .container-xl
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='../../') トップ
+        li.breadcrumb-item
+          a(href='../') 記事
+        li.breadcrumb-item
+          a(href='./' aria-current='page') 検索
+
+block main
+  main
+    .bg-light.pt-5.pb-5
+      .container-xl
+        h1.h4.mb-0 記事の検索結果
+
+    .container-xl
+      form.mt-4(action='./search/')
+        .input-group
+          input.form-control(type='search' name='keyword' id='keyword' placeholder='キーワード' aria-label='検索キーワード')
+          button.btn.btn-primary(type='submit') 検索
+
+      nav.mt-4(aria-label='トピック')
+        .d-flex.flex-wrap.gap-3
+          each el in new Array(12)
+            a.badge.bg-info.text-dark.text-decoration-none(href='#') トピック
+
+      nav.mt-4(aria-label='表示順序')
+        ul.nav.nav-tabs.nav-fill
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='./') 新着順
+          li.nav-item
+            a.nav-link(href='./') 人気順
+
+      nav.mt-4(aria-label='検索結果')
+        .row
+          each el, i in new Array(30)
+            .col-12.col-sm-6.col-lg-4.mb-4
+              +article
+
+      nav(aria-label='ページ番号')
+        ul.pagination
+          li.page-item.disabled
+            span.page-link
+              span(aria-hidden='true') &laquo; 
+              | 前のページ
+          li.page-item.active(aria-current='page')
+            a.page-link(href='./') 1
+          li.page-item
+            a.page-link(href='./') 2
+          li.page-item
+            a.page-link(href='./') 3
+          li.page-item.disabled
+            span.page-link
+              | 前のページ
+              span(aria-hidden='true')  &raquo;
