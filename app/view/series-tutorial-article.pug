@@ -1,0 +1,131 @@
+extends ./layout
+include ./mixin/article
+
+block title
+  title ここに記事のタイトルが入ります｜コンテンツマーケティング運用ツール
+
+block breadcrumb
+  nav.mt-3(aria-label='パンくずリスト')
+    .container-xl
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='../../../../') トップ
+        li.breadcrumb-item
+          a(href='../../') チュートリアル
+        li.breadcrumb-item
+          a(href='../') ここにシリーズのタイトルが入ります
+        li.breadcrumb-item
+          a(href='./' aria-current='page') ここに記事のタイトルが入ります
+
+block main
+  main
+    .bg-light.pt-5.pb-5
+      .container-xl
+        h1.h4.mb-0 ここに記事のタイトルが入ります
+
+    .container-xl
+      .d-lg-flex
+        .flex-grow-1(style='flex-basis: 0')
+          .skeleton-image.is-16x9.mt-3
+
+          .text-muted.mt-3 2021年5月20日
+
+          p.bg-light.mt-3.p-4
+            | この記事は約5分で読めます。
+
+          p.mt-3 ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+
+          section.mt-3
+            h2.border-top.pt-3.mb-3.fs-3 目次
+            ul.list-unstyled
+              li
+                a(href='#section1') この記事のポイント
+              li
+                a(href='#section2') ここに見出しが入ります1
+              li
+                a(href='#section3') ここに見出しが入ります2
+              li
+                a(href='#section4') まとめ
+
+          section.mt-3
+            h2.border-top.pt-3.mb-3.fs-3(id='section1') この記事のポイント
+            ul
+              li ここにテキストが入ります、ここにテキストが入ります。
+              li ここにテキストが入ります、ここにテキストが入ります。
+              li ここにテキストが入ります、ここにテキストが入ります。
+
+          section.mt-3
+            h2.border-top.pt-3.mb-3.fs-3(id='section2') ここに見出しが入ります
+            p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            table.table.table-bordered
+              thead
+                tr
+                  th.bg-light 列1
+                  th.bg-light 列2
+                  th.bg-light 列3
+                  th.bg-light 列4
+              tbody
+                tr
+                  td 内容
+                  td 内容
+                  td 内容
+                  td 内容
+                tr
+                  td 内容
+                  td 内容
+                  td 内容
+                  td 内容
+                tr
+                  td 内容
+                  td 内容
+                  td 内容
+                  td 内容
+
+          section.mt-3
+            h2.border-top.pt-3.mb-3.fs-3(id='section3') ここに見出しが入ります
+            p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+            .skeleton-image.is-16x9
+
+          section.mt-3
+            h2.border-top.pt-3.mb-3.fs-3(id='section4') まとめ
+            p ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+
+          nav.mt-3(aria-label='シリーズ')
+            .row
+              .col
+                .d-grid
+                  a.btn.btn-link(href='./')
+                    span(aria-hidden='true') &laquo; 
+                    | 前の記事
+              .col
+                .d-grid
+                  a.btn.btn-link(href='./')
+                    | 次の記事
+                    span(aria-hidden='true')  &raquo;
+
+          section.mt-3
+            h2.border-top.pt-3.mb-3.fs-3(id='section4') 関連記事
+            nav(aria-label='関連記事')
+              - for (let i = 1; i <= 3; i += 1)
+                .d-flex.align-items-center.mb-3
+                  .flex-grow-0.me-3(style='flex-basis: 50px')
+                    a(href='../article-title/')
+                      .skeleton-image
+                  .flex-grow-1(style='flex-basis: 0')
+                    a.text-decoration-none(href='../article-title/') ここに記事のタイトルが入ります
+
+        .flex-grow-0.ms-3.d-none.d-lg-block(style='flex-basis: 300px')
+          aside(aria-label='広告')
+            .skeleton-image.mt-3 広告
+            .skeleton-image.mt-3 広告
+
+          nav.pt-3.sticky-top
+            ul.list-unstyled
+              li
+                a(href='#section1') この記事のポイント
+              li
+                a(href='#section2') ここに見出しが入ります1
+              li
+                a(href='#section3') ここに見出しが入ります2
+              li
+                a(href='#section4') まとめ

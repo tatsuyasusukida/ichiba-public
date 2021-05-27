@@ -1,0 +1,33 @@
+extends ./layout
+include ./mixin/article
+
+block title
+  title チュートリアル｜コンテンツマーケティング運用ツール
+
+block breadcrumb
+  nav.mt-3(aria-label='パンくずリスト')
+    .container-xl
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='../') トップ
+        li.breadcrumb-item
+          a(href='./' aria-current='page') チュートリアル
+
+block main
+  main
+    .bg-light.pt-5.pb-5
+      .container-xl
+        h1.h4.mb-0 チュートリアル
+
+    .container-xl
+      nav.mt-3(aria-label='メイン')
+        .row.row-cols-1.row-cols-sm-2.row-cols-lg-3.g-3
+          - for (let i = 1; i <= 3; i += 1)
+            .col
+              article.h-100
+                .card.h-100
+                  a.skeleton-image.is-16x9.card-img-top(href='./series-title/' tabindex='-1')
+                  .card-body
+                    .text-muted.small.mb-2 2021年5月20日
+                    h2.card-title.h5.mb-0
+                      a.text-decoration-none(href='/article/article-title/') ここにシリーズのタイトルが入ります

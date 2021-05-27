@@ -1,0 +1,28 @@
+extends ./layout
+include ./mixin/article
+
+block title
+  title ここにシリーズのタイトルが入ります｜コンテンツマーケティング運用ツール
+
+block breadcrumb
+  nav.mt-3(aria-label='パンくずリスト')
+    .container-xl
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='../../../') トップ
+        li.breadcrumb-item
+          a(href='../') チュートリアル
+        li.breadcrumb-item
+          a(href='./' aria-current='page') ここにシリーズのタイトルが入ります
+
+block main
+  main
+    .bg-light.pt-5.pb-5
+      .container-xl
+        h1.h4.mb-0 ここにシリーズのタイトルが入ります
+
+    .container-xl
+      nav.mt-3(aria-label='メイン')
+        .list-group
+          - for (let i = 1; i <= 5; i += 1)
+            a.list-group-item.list-group-item-action(href='./article-title/') ここに記事のタイトルが入ります
